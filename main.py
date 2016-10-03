@@ -4,7 +4,7 @@ import telnetlib
 import time
 
 ###################################################################
-# ffunction TELNET
+# function TELNET
 ###################################################################
 
 def telnet(host):
