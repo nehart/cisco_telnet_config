@@ -1,30 +1,12 @@
 import getpass
 import sys
-import telnetlib
 import time
 
 ###################################################################
 # function TELNET
 ###################################################################
 
-def telnet(host):
-
-    cmd_file = open('commandlist.txt', 'r')
-
-
-    tn = telnetlib.Telnet(host)
-
-    tn.read_until("Username: ")
-    tn.write(user + "\r\n")
-    tn.read_until("Password: ")
-    tn.write(password + "\r\n")
-
-    for cmd in cmd_file:
-        tn.write(cmd.rstrip() + "\n")
-
-    file = open("telnet_out_." + date + ".txt", "a")
-    file.write("+++++++++++++++++++++++++++++++++++++ " + host + " +++++++++++++++++++++++++++++++++++++" + "\n" + tn.read_all() + "\n\n\n\n\n")
-    file.close()
+import lib.lib_telnet
 
 
 
@@ -40,4 +22,4 @@ user = raw_input("Enter your remote account: ")
 password = getpass.getpass()
 
 for i in input_file:
-    telnet(i.rstrip())
+    lib.lib_telnet.telnet(i.rstrip())
