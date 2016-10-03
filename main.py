@@ -19,10 +19,6 @@ def telnet(host):
     tn.read_until("Password: ")
     tn.write(password + "\r\n")
 
-    #tn.write("term len 0\n")
-    #tn.write("sh int desc\n")
-    #tn.write("logout" + "\n")
-
     for cmd in cmd_file:
         tn.write(cmd.rstrip() + "\n")
 
